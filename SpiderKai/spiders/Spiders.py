@@ -40,3 +40,13 @@ class BookingSpider(Spider):
             the_item['ticket_seat'] = booking.xpath('*[@name=\'ticket_seat\']/@value').extract()[0]
             the_item['booking'] = booking.xpath('*[@name=\'booking\']/@value').extract()[0]
             yield the_item
+
+
+class OptionsSpider(Spider):
+    name = 'options'
+    allowed_domains = ['kereta-api.co.id']
+    start_urls = ['https://tiket.kereta-api.co.id/?_it8tnz=Mw==&_8dnts=c2NoZWR1bGU=']
+
+    def parse(self, response):
+        pass
+
