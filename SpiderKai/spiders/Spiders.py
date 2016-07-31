@@ -43,10 +43,15 @@ class BookingSpider(Spider):
 
 
 class OptionsSpider(Spider):
-    name = 'options'
+    name = 'optionsspider'
     allowed_domains = ['kereta-api.co.id']
-    start_urls = ['https://tiket.kereta-api.co.id/?_it8tnz=Mw==&_8dnts=c2NoZWR1bGU=']
+    start_urls = ['https://tiket.kereta-api.co.id/']
 
     def parse(self, response):
-        pass
-
+        item = items.OptionsItem()
+        from datetime import datetime
+        item['tanggal'] = [{'date_id':i, 'date':datetime.strptime(i[:8], '%Y%m%d').strftime('%d/%m/%y')}
+                           for i in response.xpath('//select[@name=\'tanggal\']//option/@value').extract()]
+        item['station'] = [{'station_id':i, 'station_name':i.split('#')[1]}
+                           for i in response.xpath('//select[@name=\'destination\']/optgroup/option/@value').extract()]
+        yield item

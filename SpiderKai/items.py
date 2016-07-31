@@ -26,3 +26,8 @@ class BookingItem(scrapy.Item):
     fare_infant = scrapy.Field()
     ticket_seat = scrapy.Field()
     booking = scrapy.Field()
+
+
+class OptionsItem(scrapy.Item):
+    tanggal = scrapy.Field()
+    station = scrapy.Field()

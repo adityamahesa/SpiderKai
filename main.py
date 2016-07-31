@@ -2,7 +2,7 @@ from scrapy import cmdline
 
 
 def main():
-    cmdline.execute('scrapy crawl bookingspider'.split())
+    cmdline.execute('scrapy crawl optionsspider'.split())
 
 
 if __name__ == '__main__':

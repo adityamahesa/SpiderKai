@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'SpiderKai.pipelines.BookingPipeline': 300,
+    'SpiderKai.pipelines.OptionsPipeline': 300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
